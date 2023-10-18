@@ -1,0 +1,1 @@
+ openapi-generator generate -i http://127.0.0.1:8000/api-docs/openapi.json -g rust -o ./generated
