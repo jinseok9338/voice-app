@@ -1,0 +1,41 @@
+$brand-color-dark: #001A83;
+$brand-color-default: #002DE3;
+$brand-color-light: #375FFF;
+$brand-color-lighter: #879FFF;
+$brand-color-background: #D2D5F9;
+
+$neutral-active: #0F1828;
+$neutral-dark: #152033;
+$neutral-body: #1B2B48;
+$neutral-weak: #A4A4A4;
+$neutral-disabled: #ADB5BD;
+$neutral-line: #EDEDED;
+$neutral-off-white: #F7F7FC;
+$neutral-white: #FFFFFF;
+
+$accent-danger: #E94242;
+$accent-warning: #FDCF41;
+$accent-success: #2CC069;
+$accent-safe: #7BCBCF;
+
+$gradient-style-01: linear-gradient(101deg, #{$brand-color-background} -28.48%, #{$brand-color-default} 104.75%);
+$gradient-style-02: linear-gradient(140deg, #EC9EFF -11.13%, #5F2EEA 100%);
+
+@import "typography";
+@import "buttons";
+
+
+body {
+	font-family: Mulish;
+
+}
+
+button {
+	background: none;
+	border: none;
+	margin: 0;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	line-height: normal;
+}

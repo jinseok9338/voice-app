@@ -1,0 +1,91 @@
+.primary_button {
+    display: inline-flex;
+    padding: 12px 48px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    background-color: $brand-color-default;
+    color: $neutral-off-white;
+    width: 100%;
+
+}
+
+
+.primary_button:disabled {
+    opacity: 0.5;
+}
+
+.primary_button:focus {
+    outline: none;
+    /* Remove the default focus outline */
+    /* Add a border-like effect */
+    box-shadow: 0 0 0 8px $brand-color-background;
+}
+
+.primary_button:not(:disabled):hover {
+    background-color: $brand-color-dark;
+}
+
+
+
+.secondary_button {
+    display: inline-flex;
+    padding: 12px 48px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    color: $brand-color-default;
+    border: 2px solid $brand-color-default;
+    width: 100%;
+
+}
+
+
+.secondary_button:disabled {
+    opacity: 0.5;
+}
+
+.secondary_button:focus {
+    outline: none;
+    /* Remove the default focus outline */
+    /* Add a border-like effect */
+    box-shadow: 0 0 0 8px $neutral-off-white;
+}
+
+.secondary_button:not(:disabled):hover {
+    border: 2px solid $brand-color-dark;
+    color: $brand-color-dark;
+}
+
+
+
+.ghost_button {
+    display: flex;
+    padding: 12px 30px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    color: $brand-color-default;
+    width: 100%;
+}
+
+
+.ghost_button:disabled {
+    border-radius: 30px;
+    opacity: 0.5;
+}
+
+.ghost_button:focus {
+    outline: none;
+    /* Remove the default focus outline */
+    /* Add a border-like effect */
+    box-shadow: 0 0 0 8px $neutral-off-white;
+    background-color: $neutral-line;
+    border-radius: 30px;
+
+}
+
+.ghost_button:not(:disabled):hover {
+
+    color: $brand-color-dark;
+}

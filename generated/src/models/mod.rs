@@ -1,0 +1,10 @@
+pub mod auth_response;
+pub use self::auth_response::AuthResponse;
+pub mod new_user;
+pub use self::new_user::NewUser;
+pub mod signup_200_response;
+pub use self::signup_200_response::Signup200Response;
+pub mod signup_request;
+pub use self::signup_request::SignupRequest;
+pub mod user_response;
+pub use self::user_response::UserResponse;

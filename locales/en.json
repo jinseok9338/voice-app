@@ -1,0 +1,5 @@
+{
+    "hello_world": "hello_world from {{count}}",
+    "click_to_change_lang": "change",
+    "br_test": "br_test <b>hello</b> <br></br>  br_test"
+}

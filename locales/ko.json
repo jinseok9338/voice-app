@@ -1,0 +1,5 @@
+{
+    "hello_world": "안녕! {{count}} 번째 방문자",
+    "click_to_change_lang": "언어 변경",
+    "br_test": "br_test <b>hello</b> <br></br> br_test"
+}

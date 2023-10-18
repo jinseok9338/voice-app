@@ -1,0 +1,74 @@
+// Typography classes
+.heading-1,
+.heading-2,
+.subheading-1,
+.subheading-2,
+.body-text-1,
+.body-text-2,
+.metadata-1,
+.metadata-2,
+.metadata-3 {
+    color: $neutral-active; // Use the neutral-active variable for text color
+    font-family: Mulish;
+}
+
+.heading-1 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.heading-2 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.subheading-1 {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 30px;
+    /* 166.667% */
+}
+
+.subheading-2 {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 28px;
+    /* 175% */
+}
+
+.body-text-1 {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 24px;
+    /* 171.429% */
+}
+
+.body-text-2 {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    /* 171.429% */
+}
+
+.metadata-1 {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+    /* 166.667% */
+}
+
+.metadata-2 {
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 16px;
+    /* 160% */
+}
+
+.metadata-3 {
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 16px;
+    /* 160% */
+}
