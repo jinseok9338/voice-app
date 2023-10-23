@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "tailwind-watch": "npx tailwindcss -i ./input.css -o ./style/output.css --watch",
+    "api-gen": " openapi-generator generate -i http://127.0.0.1:8000/api-docs/openapi.json -g rust -o ./generated",
+    "leptos-watch-hot-reload": "cargo leptos watch --hot-reload",
+    "dev": "concurrently \"npm run tailwind-watch\" \"npm run leptos-watch-hot-reload\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "daisyui": "^3.9.3",
+    "tailwindcss": "^3.3.3"
+  }
+}

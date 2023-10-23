@@ -1,48 +1,34 @@
 use leptos::{ev::MouseEvent, *};
 
-#[component]
-pub fn PrimaryButton(
-    text: String,
-    #[prop(optional)] mut on_click: Option<Box<dyn FnMut(MouseEvent) + 'static>>,
-    #[prop(optional)] disabled: bool,
-) -> impl IntoView {
-    view! {
-        <button class="primary_button subheading-2"
-        disabled=disabled
-         on:click= move |ev| {
-            if let Some(ref mut f) = on_click {
-                f(ev);
-            }
-        }>{text}</button>
+pub enum ClassString {
+    PrimaryButton,
+    SecondaryButton,
+    GhostButton,
+}
+
+impl From<ClassString> for String {
+    fn from(class: ClassString) -> Self {
+        match class {
+            ClassString::PrimaryButton => "primary_button".to_string(),
+            ClassString::SecondaryButton => "secondary_button".to_string(),
+            ClassString::GhostButton => "ghost_button".to_string(),
+        }
     }
 }
 
 #[component]
-pub fn SecondaryButton(
+pub fn Button(
     text: String,
+    class: ClassString,
     #[prop(optional)] mut on_click: Option<Box<dyn FnMut(MouseEvent) + 'static>>,
     #[prop(optional)] disabled: bool,
+    #[prop(optional)] style: String,
 ) -> impl IntoView {
+    let class = String::from(class);
     view! {
-        <button class="secondary_button subheading-2"
+        <button class=(class + " subheading-2")
         disabled=disabled
-         on:click= move |ev| {
-            if let Some(ref mut f) = on_click {
-                f(ev);
-            }
-        }>{text}</button>
-    }
-}
-
-#[component]
-pub fn GhostButton(
-    text: String,
-    #[prop(optional)] mut on_click: Option<Box<dyn FnMut(MouseEvent) + 'static>>,
-    #[prop(optional)] disabled: bool,
-) -> impl IntoView {
-    view! {
-        <button class="ghost_button subheading-2"
-        disabled=disabled
+        style=style.clone()
          on:click= move |ev| {
             if let Some(ref mut f) = on_click {
                 f(ev);

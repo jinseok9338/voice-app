@@ -1,9 +1,10 @@
 use crate::{
     i18n::*,
-    pages::{home_page::HomePage, not_found::NotFound},
+    pages::{home_page::HomePage, login_page::index::LoginPage, not_found::NotFound},
 };
 use leptos::*;
 
+use leptos_image::provide_image_context;
 use leptos_meta::*;
 use leptos_router::*;
 
@@ -11,6 +12,7 @@ use leptos_router::*;
 pub fn App() -> impl IntoView {
     // Provides context that manages stylesheets, titles, meta tags, etc.
     provide_meta_context();
+    provide_image_context();
     provide_i18n_context();
 
     view! {
@@ -25,8 +27,8 @@ pub fn App() -> impl IntoView {
         <Router>
             <main>
                 <Routes>
-                    <Route path="" view=HomePage ssr=SsrMode::OutOfOrder   />
-                    <Route path="/*any" view=NotFound/>
+                    <Route path="/" view=LoginPage ssr=SsrMode::OutOfOrder   />
+                    // <Route path="/*any" view=NotFound/>
                 </Routes>
             </main>
         </Router>

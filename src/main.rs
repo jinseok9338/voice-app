@@ -5,6 +5,8 @@ async fn main() -> std::io::Result<()> {
     use actix_web::*;
     use leptos::*;
     use leptos_actix::{generate_route_list, LeptosRoutes};
+    use leptos_image::actix_handler;
+    use leptos_image::cache_app_images;
     use leptos_ssr::app::*;
 
     let conf = get_configuration(None).await.unwrap();
@@ -12,21 +14,26 @@ async fn main() -> std::io::Result<()> {
     // Generate the list of routes in your Leptos App
     let routes = generate_route_list(App);
     println!("listening on http://{}", &addr);
+    let root = conf.leptos_options.site_root.clone();
+    cache_app_images(root, || view! { <App/>}, 2, || (), || ())
+        .await
+        .expect("Failed to cache images");
 
     HttpServer::new(move || {
         let leptos_options = &conf.leptos_options;
         let site_root = &leptos_options.site_root;
 
         App::new()
+            .app_data(web::Data::new(leptos_options.to_owned()))
             .route("/api/{tail:.*}", leptos_actix::handle_server_fns())
+            .leptos_routes(leptos_options.to_owned(), routes.to_owned(), App)
             // serve JS/WASM/CSS from `pkg`
             .service(Files::new("/pkg", format!("{site_root}/pkg")))
             // serve other assets from the `assets` directory
             .service(Files::new("/assets", site_root))
             // serve the favicon from /favicon.ico
             .service(favicon)
-            .leptos_routes(leptos_options.to_owned(), routes.to_owned(), App)
-            .app_data(web::Data::new(leptos_options.to_owned()))
+            .route("/cache/image", web::get().to(actix_handler))
         //.wrap(middleware::Compress::default())
     })
     .bind(&addr)?

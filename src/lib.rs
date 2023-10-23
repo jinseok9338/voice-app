@@ -1,6 +1,7 @@
 pub mod app;
 pub mod components;
 pub mod pages;
+pub mod utils;
 
 leptos_i18n::load_locales!();
 use cfg_if::cfg_if;

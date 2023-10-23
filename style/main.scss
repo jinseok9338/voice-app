@@ -23,12 +23,22 @@ $gradient-style-02: linear-gradient(140deg, #EC9EFF -11.13%, #5F2EEA 100%);
 
 @import "typography";
 @import "buttons";
+@import "navigation";
 
+
+html {
+	display: flex;
+	justify-content: center;
+}
 
 body {
+	height: 100vh;
+	margin: 0;
 	font-family: Mulish;
-
+	max-width: 600px
 }
+
+
 
 button {
 	background: none;
